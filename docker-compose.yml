@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  products_transpiler:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - ./products/dist:/app/dist
+    command: node_modules/typescript/bin/tsc -w --outDir /app/dist --skipLibCheck
+
+  products_server:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - ./products/dist:/app/dist
+    command: node_modules/nodemon/bin/nodemon.js -w /app/dist/ /app/dist/index.js
+    depends_on:
+      - products_transpiler
