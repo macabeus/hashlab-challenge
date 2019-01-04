@@ -20,3 +20,11 @@ services:
       - 3000:3000
     depends_on:
       - products_transpiler
+
+  products_test:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - ./products/dist:/app/dist
+    command: node_modules/.bin/ava tests/
