@@ -6,7 +6,12 @@
     "url": "git@github.com:macabeus/hashlab-challenge.git"
   },
   "license": "MIT",
+  "dependencies": {
+    "koa": "2.6.2"
+  },
   "devDependencies": {
+    "@types/koa": "2.0.47",
+    "@types/node": "6.0.50",
     "typescript": "3.2.2",
     "nodemon": "1.18.9"
   },
