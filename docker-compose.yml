@@ -16,5 +16,7 @@ services:
       - ./products:/app
       - ./products/dist:/app/dist
     command: node_modules/nodemon/bin/nodemon.js -w /app/dist/ /app/dist/index.js
+    ports:
+      - 3000:3000
     depends_on:
       - products_transpiler
