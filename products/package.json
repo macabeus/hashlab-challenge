@@ -13,7 +13,18 @@
     "@types/koa": "2.0.47",
     "@types/node": "6.0.50",
     "typescript": "3.2.2",
-    "nodemon": "1.18.9"
+    "nodemon": "1.18.9",
+    "ava": "1.0.1",
+    "ts-node": "7.0.1"
   },
-  "main": "./dist/index.js"
+  "main": "./dist/index.js",
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
 }
