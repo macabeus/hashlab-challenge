@@ -41,5 +41,17 @@ services:
     networks:
       - network
 
+  database_seed:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - ./products/dist:/app/dist
+    command: node /app/dist/database/seeds.js
+    networks:
+      - network
+    depends_on:
+      - localstack
+
 networks:
   network:
