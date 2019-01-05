@@ -18,8 +18,11 @@ services:
     command: node_modules/nodemon/bin/nodemon.js -w /app/dist/ /app/dist/index.js
     ports:
       - 3000:3000
+    networks:
+      - network
     depends_on:
       - products_transpiler
+      - localstack
 
   products_test:
     build:
@@ -35,3 +38,8 @@ services:
       - 4564:4564 # shell dynamondb
     expose:
       - 4569 # dynamondb
+    networks:
+      - network
+
+networks:
+  network:
