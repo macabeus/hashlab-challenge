@@ -1,10 +1,12 @@
 import test from 'ava'
 import productsRoute from '../../routes/products'
-
+import { dynamoProducts } from '../helpers/dynamo'
 
 test('GET /product', async t => {
   let path = ''
-  let ctx: any = {}
+  const ctx: any = {
+    dynamo: dynamoProducts,
+  }
 
   const mockKoaRouter: any = {
     get: async (getPath, callback) => {
