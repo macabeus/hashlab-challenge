@@ -53,5 +53,11 @@ services:
     depends_on:
       - localstack
 
+  discount_server:
+    build:
+      context: ./discount
+    volumes:
+      - ./discount:/app
+
 networks:
   network:
