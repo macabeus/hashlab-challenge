@@ -28,3 +28,10 @@ services:
       - ./products:/app
       - ./products/dist:/app/dist
     command: node_modules/.bin/ava tests/
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - 4564:4564 # shell dynamondb
+    expose:
+      - 4569 # dynamondb
