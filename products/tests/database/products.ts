@@ -1,9 +1,10 @@
 import test from 'ava'
+import DynamoError from '../../database/dynamo_error'
 import { index } from '../../database/products'
-
+import { dynamoFail, dynamoProducts } from '../helpers/dynamo'
 
 test('Index', async t => {
-  const result = index()
+  const result = await index(dynamoProducts)
 
   t.deepEqual(result, [
     {
@@ -17,4 +18,10 @@ test('Index', async t => {
       },
     },
   ], 'Should return a valid product')
+})
+
+test('Index Error', async t => {
+  const result: DynamoError = await t.throwsAsync(() => index(dynamoFail))
+
+  t.deepEqual(result.name, 'DynamoError', 'Should return an error')
 })
