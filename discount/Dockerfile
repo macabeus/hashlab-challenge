@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-RUN pip install boto3 flake8
+RUN pip install boto3 flake8 nose2
 
 CMD [ "python", "./main.py" ]
