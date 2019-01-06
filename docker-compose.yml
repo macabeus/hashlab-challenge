@@ -58,6 +58,10 @@ services:
       context: ./discount
     volumes:
       - ./discount:/app
+    networks:
+      - network
+    depends_on:
+      - localstack
 
   discount_lint:
     build:
