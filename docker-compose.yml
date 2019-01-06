@@ -59,5 +59,12 @@ services:
     volumes:
       - ./discount:/app
 
+  discount_lint:
+    build:
+      context: ./discount
+    volumes:
+      - ./discount:/app
+    command: flake8 .
+
 networks:
   network:
