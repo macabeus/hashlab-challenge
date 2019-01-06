@@ -70,5 +70,12 @@ services:
       - ./discount:/app
     command: flake8 .
 
+  discount_test:
+    build:
+      context: ./discount
+    volumes:
+      - ./discount:/app
+    command: nose2
+
 networks:
   network:
