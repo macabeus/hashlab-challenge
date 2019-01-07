@@ -58,6 +58,8 @@ services:
       context: ./discount
     volumes:
       - ./discount:/app
+    expose:
+      - 50051 # grpc server
     networks:
       - network
     depends_on:
