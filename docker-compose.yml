@@ -68,7 +68,7 @@ services:
       context: ./discount
     volumes:
       - ./discount:/app
-    command: flake8 .
+    command: flake8 . --exclude proto
 
   discount_test:
     build:
