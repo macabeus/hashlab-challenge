@@ -2,7 +2,7 @@ import * as AWS from 'aws-sdk'
 import DynamoError from './dynamo_error'
 
 interface IProduct {
-  id: string
+  id: number
   title: string
   description: string
   price_in_cents: number
@@ -14,7 +14,7 @@ interface IProduct {
 
 const responseObjectBuilder = obj => {
   return {
-    id: obj.Id.N,
+    id: Number(obj.Id.N),
     title: obj.Title.S,
     description: obj.Description.S,
     price_in_cents: Number(obj.Price.N),
