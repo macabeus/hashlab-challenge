@@ -21,7 +21,7 @@ test('GET /product', async t => {
   t.is(path, '/product', 'Should path be "/product"')
   t.deepEqual(ctx.body, [
     {
-      id: '1',
+      id: 1,
       price_in_cents: 100,
       title: 'Bola',
       description: 'Esfera chutavel.',

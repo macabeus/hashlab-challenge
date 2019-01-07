@@ -8,7 +8,7 @@ test('Index', async t => {
 
   t.deepEqual(result, [
     {
-      id: '1',
+      id: 1,
       price_in_cents: 100,
       title: 'Bola',
       description: 'Esfera chutavel.',
