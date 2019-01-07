@@ -13,7 +13,6 @@ services:
     build:
       context: ./products
     volumes:
-      - ./products:/app
       - ./products/dist:/app/dist
     command: node_modules/nodemon/bin/nodemon.js -w /app/dist/ /app/dist/index.js
     ports:
