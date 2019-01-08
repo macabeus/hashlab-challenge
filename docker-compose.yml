@@ -39,7 +39,7 @@ services:
       - ./products:/app
       - /app/node_modules
       - ./products/dist:/app/dist
-    command: node_modules/.bin/ava tests/
+    command: sh -c "npm rebuild && node_modules/.bin/ava tests/"
 
   localstack:
     image: localstack/localstack
