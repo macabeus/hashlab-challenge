@@ -6,6 +6,7 @@ services:
       context: ./products
     volumes:
       - ./products:/app
+      - /app/node_modules
       - ./products/dist:/app/dist
     command: node_modules/typescript/bin/tsc -w --outDir /app/dist --skipLibCheck
 
@@ -52,6 +53,7 @@ services:
       context: ./products
     volumes:
       - ./products:/app
+      - /app/node_modules
       - ./products/dist:/app/dist
     command: node /app/dist/database/seeds.js
     networks:
