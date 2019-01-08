@@ -1,0 +1,36 @@
+version: 2.1
+
+executors:
+  my-executor:
+    machine: true
+
+jobs:
+  products_test:
+    executor: my-executor
+    steps:
+      - checkout
+      - run: docker-compose run products_test
+  products_lint:
+    executor: my-executor
+    steps:
+      - checkout
+      - run: docker-compose run products_lint
+  discount_test:
+    executor: my-executor
+    steps:
+      - checkout
+      - run: docker-compose run discount_test
+  discount_lint:
+    executor: my-executor
+    steps:
+      - checkout
+      - run: docker-compose run discount_lint
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - products_test
+      - products_lint
+      - discount_test
+      - discount_lint
