@@ -23,6 +23,13 @@ services:
       - products_transpiler
       - localstack
 
+  products_lint:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+    command: node_modules/.bin/tslint --project .
+
   products_test:
     build:
       context: ./products
