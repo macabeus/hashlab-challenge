@@ -1,0 +1,32 @@
+version: 2.1
+
+jobs:
+  products_test:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run products_test
+  products_lint:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run products_lint
+  discount_test:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run discount_test
+  discount_lint:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run discount_lint
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - products_test
+      - products_lint
+      - discount_test
+      - discount_lint
