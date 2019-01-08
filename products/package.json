@@ -15,12 +15,14 @@
     "protobufjs": "6.8.8"
   },
   "devDependencies": {
+    "@types/supertest": "2.0.7",
     "@types/koa": "2.0.47",
     "@types/koa-router": "7.0.35",
     "@types/node": "6.0.50",
     "typescript": "3.2.2",
     "nodemon": "1.18.9",
     "ava": "1.0.1",
+    "supertest": "3.3.0",
     "ts-node": "7.0.1",
     "tslint": "5.12.0"
   },

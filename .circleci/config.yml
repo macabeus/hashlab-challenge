@@ -11,6 +11,11 @@ jobs:
     steps:
       - checkout
       - run: docker-compose run products_test_functional
+  products_test_e2e:
+    machine: true
+    steps:
+      - checkout
+      - run: docker-compose run products_test_e2e
   products_lint:
     machine: true
     steps:
@@ -33,6 +38,7 @@ workflows:
     jobs:
       - products_test_unit
       - products_test_functional
+      - products_test_e2e
       - products_lint
       - discount_test
       - discount_lint

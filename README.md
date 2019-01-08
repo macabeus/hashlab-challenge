@@ -69,6 +69,7 @@ Testes do Products:
 ```
 docker-compose run products_test_unit
 docker-compose run products_test_functional
+docker-compose run products_test_e2e
 ```
 
 Lint no Products:

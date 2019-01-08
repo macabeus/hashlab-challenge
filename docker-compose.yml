@@ -50,6 +50,21 @@ services:
       - ./products/dist:/app/dist
     command: sh -c "npm rebuild && node_modules/.bin/ava tests/functional"
 
+  products_test_e2e:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - /app/node_modules
+      - ./products/dist:/app/dist
+    command: sh -c "npm rebuild && node /app/dist/database/seeds.js && node_modules/.bin/ava tests/e2e"
+    depends_on:
+      - products_transpiler
+      - localstack
+      - discount_server
+    networks:
+      - network
+
   localstack:
     image: localstack/localstack
     ports:
