@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x14proto/discount.proto\"O\n\x16\x43\x61lcDiscountParameters\x12\x11\n\tproductId\x18\x01 \x01(\x05\x12\x10\n\x06userId\x18\x02 \x01(\x05H\x00\x42\x10\n\x0eoptionalUserId\"&\n\x12\x43\x61lcDiscountResult\x12\x10\n\x08\x64iscount\x18\x01 \x01(\x05\x32H\n\x08\x44iscount\x12<\n\x0c\x43\x61lcDiscount\x12\x17.CalcDiscountParameters\x1a\x13.CalcDiscountResultb\x06proto3')
+  serialized_pb=_b('\n\x14proto/discount.proto\"\x8d\x01\n\x16\x43\x61lcDiscountParameters\x12\x11\n\tproductId\x18\x01 \x01(\x05\x12\x10\n\x06userId\x18\x02 \x01(\x05H\x00\x12\x1e\n\x14\x66orce_discount_debug\x18\x03 \x01(\x05H\x01\x42\x10\n\x0eoptionalUserIdB\x1c\n\x1aoptionalForceDiscountDebug\"&\n\x12\x43\x61lcDiscountResult\x12\x10\n\x08\x64iscount\x18\x01 \x01(\x05\x32H\n\x08\x44iscount\x12<\n\x0c\x43\x61lcDiscount\x12\x17.CalcDiscountParameters\x1a\x13.CalcDiscountResultb\x06proto3')
 )
 
 
@@ -46,6 +46,13 @@ _CALCDISCOUNTPARAMETERS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='force_discount_debug', full_name='CalcDiscountParameters.force_discount_debug', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -60,9 +67,12 @@ _CALCDISCOUNTPARAMETERS = _descriptor.Descriptor(
     _descriptor.OneofDescriptor(
       name='optionalUserId', full_name='CalcDiscountParameters.optionalUserId',
       index=0, containing_type=None, fields=[]),
+    _descriptor.OneofDescriptor(
+      name='optionalForceDiscountDebug', full_name='CalcDiscountParameters.optionalForceDiscountDebug',
+      index=1, containing_type=None, fields=[]),
   ],
-  serialized_start=24,
-  serialized_end=103,
+  serialized_start=25,
+  serialized_end=166,
 )
 
 
@@ -92,13 +102,16 @@ _CALCDISCOUNTRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=105,
-  serialized_end=143,
+  serialized_start=168,
+  serialized_end=206,
 )
 
 _CALCDISCOUNTPARAMETERS.oneofs_by_name['optionalUserId'].fields.append(
   _CALCDISCOUNTPARAMETERS.fields_by_name['userId'])
 _CALCDISCOUNTPARAMETERS.fields_by_name['userId'].containing_oneof = _CALCDISCOUNTPARAMETERS.oneofs_by_name['optionalUserId']
+_CALCDISCOUNTPARAMETERS.oneofs_by_name['optionalForceDiscountDebug'].fields.append(
+  _CALCDISCOUNTPARAMETERS.fields_by_name['force_discount_debug'])
+_CALCDISCOUNTPARAMETERS.fields_by_name['force_discount_debug'].containing_oneof = _CALCDISCOUNTPARAMETERS.oneofs_by_name['optionalForceDiscountDebug']
 DESCRIPTOR.message_types_by_name['CalcDiscountParameters'] = _CALCDISCOUNTPARAMETERS
 DESCRIPTOR.message_types_by_name['CalcDiscountResult'] = _CALCDISCOUNTRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -125,8 +138,8 @@ _DISCOUNT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=145,
-  serialized_end=217,
+  serialized_start=208,
+  serialized_end=280,
   methods=[
   _descriptor.MethodDescriptor(
     name='CalcDiscount',

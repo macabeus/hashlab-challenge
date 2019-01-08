@@ -39,7 +39,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.CalcDiscountParameters.oneofGroups_ = [[2]];
+proto.CalcDiscountParameters.oneofGroups_ = [[2],[3]];
 
 /**
  * @enum {number}
@@ -54,6 +54,21 @@ proto.CalcDiscountParameters.OptionaluseridCase = {
  */
 proto.CalcDiscountParameters.prototype.getOptionaluseridCase = function() {
   return /** @type {proto.CalcDiscountParameters.OptionaluseridCase} */(jspb.Message.computeOneofCase(this, proto.CalcDiscountParameters.oneofGroups_[0]));
+};
+
+/**
+ * @enum {number}
+ */
+proto.CalcDiscountParameters.OptionalforcediscountdebugCase = {
+  OPTIONALFORCEDISCOUNTDEBUG_NOT_SET: 0,
+  FORCE_DISCOUNT_DEBUG: 3
+};
+
+/**
+ * @return {proto.CalcDiscountParameters.OptionalforcediscountdebugCase}
+ */
+proto.CalcDiscountParameters.prototype.getOptionalforcediscountdebugCase = function() {
+  return /** @type {proto.CalcDiscountParameters.OptionalforcediscountdebugCase} */(jspb.Message.computeOneofCase(this, proto.CalcDiscountParameters.oneofGroups_[1]));
 };
 
 
@@ -86,7 +101,8 @@ proto.CalcDiscountParameters.prototype.toObject = function(opt_includeInstance) 
 proto.CalcDiscountParameters.toObject = function(includeInstance, msg) {
   var f, obj = {
     productid: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    userid: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    forceDiscountDebug: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -131,6 +147,10 @@ proto.CalcDiscountParameters.deserializeBinaryFromReader = function(msg, reader)
       var value = /** @type {number} */ (reader.readInt32());
       msg.setUserid(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setForceDiscountDebug(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -171,6 +191,13 @@ proto.CalcDiscountParameters.serializeBinaryToWriter = function(message, writer)
   if (f != null) {
     writer.writeInt32(
       2,
+      f
+    );
+  }
+  f = /** @type {number} */ (jspb.Message.getField(message, 3));
+  if (f != null) {
+    writer.writeInt32(
+      3,
       f
     );
   }
@@ -218,6 +245,35 @@ proto.CalcDiscountParameters.prototype.clearUserid = function() {
  */
 proto.CalcDiscountParameters.prototype.hasUserid = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional int32 force_discount_debug = 3;
+ * @return {number}
+ */
+proto.CalcDiscountParameters.prototype.getForceDiscountDebug = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/** @param {number} value */
+proto.CalcDiscountParameters.prototype.setForceDiscountDebug = function(value) {
+  jspb.Message.setOneofField(this, 3, proto.CalcDiscountParameters.oneofGroups_[1], value);
+};
+
+
+proto.CalcDiscountParameters.prototype.clearForceDiscountDebug = function() {
+  jspb.Message.setOneofField(this, 3, proto.CalcDiscountParameters.oneofGroups_[1], undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.CalcDiscountParameters.prototype.hasForceDiscountDebug = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 

@@ -5,6 +5,9 @@ message CalcDiscountParameters {
     oneof optionalUserId {
         int32 userId = 2;
     }
+    oneof optionalForceDiscountDebug {
+        int32 force_discount_debug = 3;
+    }
 }
 
 message CalcDiscountResult {

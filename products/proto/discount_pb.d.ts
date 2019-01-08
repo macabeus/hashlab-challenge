@@ -16,7 +16,14 @@ export class CalcDiscountParameters extends jspb.Message {
     setUserid(value: number): void;
 
 
+    hasForceDiscountDebug(): boolean;
+    clearForceDiscountDebug(): void;
+    getForceDiscountDebug(): number;
+    setForceDiscountDebug(value: number): void;
+
+
     getOptionalUserIdCase(): CalcDiscountParameters.OptionalUserIdCase;
+    getOptionalForceDiscountDebugCase(): CalcDiscountParameters.OptionalForceDiscountDebugCase;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): CalcDiscountParameters.AsObject;
@@ -32,12 +39,20 @@ export namespace CalcDiscountParameters {
     export type AsObject = {
         productid: number,
         userid: number,
+        forceDiscountDebug: number,
     }
 
     export enum OptionalUserIdCase {
         OPTIONALUSERID_NOT_SET = 0,
     
     USERID = 2,
+
+    }
+
+    export enum OptionalForceDiscountDebugCase {
+        OPTIONALFORCEDISCOUNTDEBUG_NOT_SET = 0,
+    
+    FORCE_DISCOUNT_DEBUG = 3,
 
     }
 

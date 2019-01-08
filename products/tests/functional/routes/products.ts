@@ -8,6 +8,7 @@ test('GET /product without discount', async t => {
   const ctx: any = {
     grpcClient: withoutDiscount,
     dynamo: dynamoProducts,
+    debugOptions: { },
   }
   const route = {}
 
@@ -32,6 +33,7 @@ test('GET /product with discount', async t => {
   const ctx: any = {
     grpcClient: withDiscount,
     dynamo: dynamoProducts,
+    debugOptions: { },
   }
   const route = {}
 
@@ -56,6 +58,7 @@ test('GET /product when one a product fail to get a discount', async t => {
   const ctx: any = {
     grpcClient: discountSecondProductError,
     dynamo: dynamoTwoProducts,
+    debugOptions: { },
   }
   const route = {}
 

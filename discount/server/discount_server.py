@@ -11,6 +11,11 @@ if os.environ['INTERMITTENT'] == '1':
 else:
     intermittent_flag = False
 
+if os.environ['ALLOW_DEBUG_OPTIONS'] == '1':
+    allow_debug_options_flag = True
+else:
+    allow_debug_options_flag = False
+
 
 class DiscountServer(DiscountServicer):
     def CalcDiscount(self, request, context):
@@ -32,5 +37,9 @@ class DiscountServer(DiscountServicer):
 
         result = CalcDiscountResult()
         result.discount = discount_value
+
+        if (allow_debug_options_flag and
+                request.HasField('force_discount_debug')):
+            result.discount = request.force_discount_debug
 
         return result
