@@ -47,6 +47,8 @@ services:
       - 4564:4564 # shell dynamondb
     expose:
       - 4569 # dynamondb
+    environment:
+      - SERVICES=dynamodb
     networks:
       - network
 
