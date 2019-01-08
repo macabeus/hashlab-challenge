@@ -21,7 +21,8 @@
     "typescript": "3.2.2",
     "nodemon": "1.18.9",
     "ava": "1.0.1",
-    "ts-node": "7.0.1"
+    "ts-node": "7.0.1",
+    "tslint": "5.12.0"
   },
   "main": "./dist/index.js",
   "ava": {
