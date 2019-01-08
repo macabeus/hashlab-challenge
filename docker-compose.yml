@@ -13,7 +13,6 @@ services:
     build:
       context: ./products
     volumes:
-      - ./products:/app
       - ./products/dist:/app/dist
     command: node_modules/nodemon/bin/nodemon.js -w /app/dist/ /app/dist/index.js
     ports:
@@ -58,6 +57,8 @@ services:
       context: ./discount
     volumes:
       - ./discount:/app
+    expose:
+      - 50051 # grpc server
     networks:
       - network
     depends_on:
@@ -68,7 +69,7 @@ services:
       context: ./discount
     volumes:
       - ./discount:/app
-    command: flake8 .
+    command: flake8 . --exclude proto
 
   discount_test:
     build:
