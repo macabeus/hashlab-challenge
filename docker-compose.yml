@@ -61,6 +61,8 @@ services:
       - 50051 # grpc server
     networks:
       - network
+    environment:
+      - INTERMITTENT=${DISCOUNT_SERVER_INTERMITTENT}
     depends_on:
       - localstack
 

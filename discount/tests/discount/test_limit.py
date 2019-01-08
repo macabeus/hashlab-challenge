@@ -13,7 +13,12 @@ class TestLimitDiscount(TestCase):
             date_of_birth=blackfriday_date
         )
 
-        assert discount.apply(blackfriday_date, user) == 10, \
+        assert discount.apply(
+            current_date=blackfriday_date,
+            user=user,
+            product_id=1,
+            intermittent_flag=False
+        ) == 10, \
             'Should give 10 as descont'
 
 
