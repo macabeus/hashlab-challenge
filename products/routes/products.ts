@@ -7,7 +7,7 @@ const productsRoute = (router: KoaRouter) => router.get('/product', async ctx =>
 
   const productsDiscount = await Promise.all(products.map(async product => {
     try {
-      const discount = await getDiscount(ctx.grpcClient, product.id, 1)
+      const discount = await getDiscount(ctx.grpcClient, product.id, ctx.userId)
 
       product.discount.pct = discount
       product.discount.value_in_cents = product.price_in_cents * discount / 100
