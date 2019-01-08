@@ -32,14 +32,23 @@ services:
       - /app/node_modules
     command: node_modules/.bin/tslint --project .
 
-  products_test:
+  products_test_unit:
     build:
       context: ./products
     volumes:
       - ./products:/app
       - /app/node_modules
       - ./products/dist:/app/dist
-    command: sh -c "npm rebuild && node_modules/.bin/ava tests/"
+    command: sh -c "npm rebuild && node_modules/.bin/ava tests/unit"
+
+  products_test_functional:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - /app/node_modules
+      - ./products/dist:/app/dist
+    command: sh -c "npm rebuild && node_modules/.bin/ava tests/functional"
 
   localstack:
     image: localstack/localstack

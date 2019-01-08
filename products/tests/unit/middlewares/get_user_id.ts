@@ -1,5 +1,5 @@
 import test from 'ava'
-import getUserId from '../../middlewares/get_user_id'
+import getUserId from '../../../middlewares/get_user_id'
 
 test('Middleware getUserId when passing a valid x-user-id', async t => {
   t.plan(1)

@@ -1,5 +1,5 @@
 import test from 'ava'
-import setGrpcClient from '../../middlewares/set_grpc_client'
+import setGrpcClient from '../../../middlewares/set_grpc_client'
 
 test('Middleware setGrpcClient', async t => {
   t.plan(1)

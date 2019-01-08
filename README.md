@@ -67,7 +67,8 @@ Desse modo, produtos com ID par retornarão erro ao tentar obter o desconto, e a
 Testes do Products:
 
 ```
-docker-compose run products_test
+docker-compose run products_test_unit
+docker-compose run products_test_functional
 ```
 
 Lint no Products:

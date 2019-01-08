@@ -1,8 +1,8 @@
 import test from 'ava'
-import productsRoute from '../../routes/products'
-import { dynamoProducts, dynamoTwoProducts } from '../helpers/dynamo'
-import { discountSecondProductError, withDiscount, withoutDiscount } from '../helpers/grpc_client'
-import { mockKoaRouter } from '../helpers/koa_router'
+import productsRoute from '../../../routes/products'
+import { dynamoProducts, dynamoTwoProducts } from '../../helpers/dynamo'
+import { discountSecondProductError, withDiscount, withoutDiscount } from '../../helpers/grpc_client'
+import { mockKoaRouter } from '../../helpers/koa_router'
 
 test('GET /product without discount', async t => {
   const ctx: any = {
