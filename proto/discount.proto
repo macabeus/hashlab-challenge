@@ -1,9 +1,12 @@
 syntax = "proto3";
 
 message CalcDiscountParameters {
-    int32 productId = 1;
+    int32 product_id = 1;
     oneof optionalUserId {
-        int32 userId = 2;
+        int32 user_id = 2;
+    }
+    oneof optionalForceDiscountDebug {
+        int32 force_discount_debug = 3;
     }
 }
 

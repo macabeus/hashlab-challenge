@@ -1,13 +1,14 @@
 import test from 'ava'
-import productsRoute from '../../routes/products'
-import { dynamoProducts, dynamoTwoProducts } from '../helpers/dynamo'
-import { discountSecondProductError, withDiscount, withoutDiscount } from '../helpers/grpc_client'
-import { mockKoaRouter } from '../helpers/koa_router'
+import productsRoute from '../../../routes/products'
+import { dynamoProducts, dynamoTwoProducts } from '../../helpers/dynamo'
+import { discountSecondProductError, withDiscount, withoutDiscount } from '../../helpers/grpc_client'
+import { mockKoaRouter } from '../../helpers/koa_router'
 
 test('GET /product without discount', async t => {
   const ctx: any = {
     grpcClient: withoutDiscount,
     dynamo: dynamoProducts,
+    debugOptions: { },
   }
   const route = {}
 
@@ -32,6 +33,7 @@ test('GET /product with discount', async t => {
   const ctx: any = {
     grpcClient: withDiscount,
     dynamo: dynamoProducts,
+    debugOptions: { },
   }
   const route = {}
 
@@ -56,6 +58,7 @@ test('GET /product when one a product fail to get a discount', async t => {
   const ctx: any = {
     grpcClient: discountSecondProductError,
     dynamo: dynamoTwoProducts,
+    debugOptions: { },
   }
   const route = {}
 

@@ -1,5 +1,5 @@
 import test from 'ava'
-import setDynamo from '../../middlewares/set_dynamo'
+import setDynamo from '../../../middlewares/set_dynamo'
 
 test('Middleware setDynamo', async t => {
   t.plan(1)

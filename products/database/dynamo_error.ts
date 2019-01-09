@@ -4,7 +4,7 @@ class DynamoError extends Error {
   public awsError: AWS.AWSError
 
   constructor(awsError: AWS.AWSError) {
-    super('Dynamo error')
+    super(awsError.message)
 
     this.name = 'DynamoError'
     this.awsError = awsError

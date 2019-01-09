@@ -32,14 +32,38 @@ services:
       - /app/node_modules
     command: node_modules/.bin/tslint --project .
 
-  products_test:
+  products_test_unit:
     build:
       context: ./products
     volumes:
       - ./products:/app
       - /app/node_modules
       - ./products/dist:/app/dist
-    command: node_modules/.bin/ava tests/
+    command: sh -c "npm rebuild && node_modules/.bin/ava tests/unit"
+
+  products_test_functional:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - /app/node_modules
+      - ./products/dist:/app/dist
+    command: sh -c "npm rebuild && node_modules/.bin/ava tests/functional"
+
+  products_test_e2e:
+    build:
+      context: ./products
+    volumes:
+      - ./products:/app
+      - /app/node_modules
+      - ./products/dist:/app/dist
+    command: sh -c "npm rebuild && node /app/dist/database/seeds.js && node_modules/.bin/ava tests/e2e"
+    depends_on:
+      - products_transpiler
+      - localstack
+      - discount_server
+    networks:
+      - network
 
   localstack:
     image: localstack/localstack
@@ -76,6 +100,7 @@ services:
       - network
     environment:
       - INTERMITTENT=${DISCOUNT_SERVER_INTERMITTENT}
+      - ALLOW_DEBUG_OPTIONS=${DISCOUNT_ALLOW_DEBUG_OPTIONS}
     depends_on:
       - localstack
 

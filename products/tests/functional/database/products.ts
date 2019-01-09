@@ -1,7 +1,7 @@
 import test from 'ava'
-import DynamoError from '../../database/dynamo_error'
-import { index } from '../../database/products'
-import { dynamoFail, dynamoProducts } from '../helpers/dynamo'
+import DynamoError from '../../../database/dynamo_error'
+import { index } from '../../../database/products'
+import { dynamoFail, dynamoProducts } from '../../helpers/dynamo'
 
 test('Index', async t => {
   const result = await index(dynamoProducts)

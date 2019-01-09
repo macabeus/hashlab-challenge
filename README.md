@@ -31,7 +31,7 @@ Em seguida, para popular o banco de dados, use:
 docker-compose run --rm database_seed
 ```
 
-Desse modo, a listagem de produtos estará acessível a partir da url `http://localhost:3000/product`. Opcionalmente, pode-se passar um id de usuário definindo no header `X-USER-ID`.
+Desse modo, a listagem de produtos estará acessível a partir da url `http://localhost:3000/product`. Nessa rota, opcionalmente, pode-se passar um id de usuário definindo no header `X-USER-ID`. Outro parâmetro optional no header é o `FORCE-DISCOUNT-DEBUG`, da qual deve-se passar um número que será o desconto retornado pelo Discount, o que é útil para fins de teste.
 
 De forma análoga, para parar todos os serviços pode usar o seguinte comando:
 
@@ -67,7 +67,9 @@ Desse modo, produtos com ID par retornarão erro ao tentar obter o desconto, e a
 Testes do Products:
 
 ```
-docker-compose run products_test
+docker-compose run products_test_unit
+docker-compose run products_test_functional
+docker-compose run products_test_e2e
 ```
 
 Lint no Products:
