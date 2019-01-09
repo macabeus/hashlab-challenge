@@ -1,0 +1,17 @@
+boto3==1.9.74
+botocore==1.12.74
+coverage==4.5.2
+docutils==0.14
+flake8==3.6.0
+grpcio==1.17.1
+grpcio-tools==1.17.1
+jmespath==0.9.3
+mccabe==0.6.1
+nose2==0.8.0
+protobuf==3.6.1
+pycodestyle==2.4.0
+pyflakes==2.0.0
+python-dateutil==2.7.5
+s3transfer==0.1.13
+six==1.12.0
+urllib3==1.24.1
