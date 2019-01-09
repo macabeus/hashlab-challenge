@@ -1,18 +1,8 @@
 import * as AWS from 'aws-sdk'
+import IProduct from '../models/product'
 import DynamoError from './dynamo_error'
 
-interface IProduct {
-  id: number
-  title: string
-  description: string
-  price_in_cents: number
-  discount: {
-    pct: number
-    value_in_cents: number
-  }
-}
-
-const responseObjectBuilder = obj => {
+const responseObjectBuilder: (obj: AWS.DynamoDB.AttributeMap) => IProduct = obj => {
   return {
     id: Number(obj.Id.N),
     title: obj.Title.S,
