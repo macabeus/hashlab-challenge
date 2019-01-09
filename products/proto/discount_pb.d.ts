@@ -6,14 +6,14 @@
 import * as jspb from "google-protobuf";
 
 export class CalcDiscountParameters extends jspb.Message { 
-    getProductid(): number;
-    setProductid(value: number): void;
+    getProductId(): number;
+    setProductId(value: number): void;
 
 
-    hasUserid(): boolean;
-    clearUserid(): void;
-    getUserid(): number;
-    setUserid(value: number): void;
+    hasUserId(): boolean;
+    clearUserId(): void;
+    getUserId(): number;
+    setUserId(value: number): void;
 
 
     hasForceDiscountDebug(): boolean;
@@ -37,15 +37,15 @@ export class CalcDiscountParameters extends jspb.Message {
 
 export namespace CalcDiscountParameters {
     export type AsObject = {
-        productid: number,
-        userid: number,
+        productId: number,
+        userId: number,
         forceDiscountDebug: number,
     }
 
     export enum OptionalUserIdCase {
         OPTIONALUSERID_NOT_SET = 0,
     
-    USERID = 2,
+    USER_ID = 2,
 
     }
 

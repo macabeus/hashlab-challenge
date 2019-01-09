@@ -19,10 +19,10 @@ else:
 
 class DiscountServer(DiscountServicer):
     def CalcDiscount(self, request, context):
-        product_id = request.productId
+        product_id = request.product_id
 
-        if request.HasField('userId'):
-            user_id = request.userId
+        if request.HasField('user_id'):
+            user_id = request.user_id
             user = users.get_user(user_id)
         else:
             user = None

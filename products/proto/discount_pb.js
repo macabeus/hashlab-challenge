@@ -46,7 +46,7 @@ proto.CalcDiscountParameters.oneofGroups_ = [[2],[3]];
  */
 proto.CalcDiscountParameters.OptionaluseridCase = {
   OPTIONALUSERID_NOT_SET: 0,
-  USERID: 2
+  USER_ID: 2
 };
 
 /**
@@ -100,8 +100,8 @@ proto.CalcDiscountParameters.prototype.toObject = function(opt_includeInstance) 
  */
 proto.CalcDiscountParameters.toObject = function(includeInstance, msg) {
   var f, obj = {
-    productid: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    userid: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    productId: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    userId: jspb.Message.getFieldWithDefault(msg, 2, 0),
     forceDiscountDebug: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
@@ -141,11 +141,11 @@ proto.CalcDiscountParameters.deserializeBinaryFromReader = function(msg, reader)
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setProductid(value);
+      msg.setProductId(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setUserid(value);
+      msg.setUserId(value);
       break;
     case 3:
       var value = /** @type {number} */ (reader.readInt32());
@@ -180,7 +180,7 @@ proto.CalcDiscountParameters.prototype.serializeBinary = function() {
  */
 proto.CalcDiscountParameters.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProductid();
+  f = message.getProductId();
   if (f !== 0) {
     writer.writeInt32(
       1,
@@ -205,36 +205,36 @@ proto.CalcDiscountParameters.serializeBinaryToWriter = function(message, writer)
 
 
 /**
- * optional int32 productId = 1;
+ * optional int32 product_id = 1;
  * @return {number}
  */
-proto.CalcDiscountParameters.prototype.getProductid = function() {
+proto.CalcDiscountParameters.prototype.getProductId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.CalcDiscountParameters.prototype.setProductid = function(value) {
+proto.CalcDiscountParameters.prototype.setProductId = function(value) {
   jspb.Message.setField(this, 1, value);
 };
 
 
 /**
- * optional int32 userId = 2;
+ * optional int32 user_id = 2;
  * @return {number}
  */
-proto.CalcDiscountParameters.prototype.getUserid = function() {
+proto.CalcDiscountParameters.prototype.getUserId = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.CalcDiscountParameters.prototype.setUserid = function(value) {
+proto.CalcDiscountParameters.prototype.setUserId = function(value) {
   jspb.Message.setOneofField(this, 2, proto.CalcDiscountParameters.oneofGroups_[0], value);
 };
 
 
-proto.CalcDiscountParameters.prototype.clearUserid = function() {
+proto.CalcDiscountParameters.prototype.clearUserId = function() {
   jspb.Message.setOneofField(this, 2, proto.CalcDiscountParameters.oneofGroups_[0], undefined);
 };
 
@@ -243,7 +243,7 @@ proto.CalcDiscountParameters.prototype.clearUserid = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.CalcDiscountParameters.prototype.hasUserid = function() {
+proto.CalcDiscountParameters.prototype.hasUserId = function() {
   return jspb.Message.getField(this, 2) != null;
 };
 

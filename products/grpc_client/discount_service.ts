@@ -8,9 +8,9 @@ const getDiscount = async (
   forceDiscountDebug?: number
 ): Promise<number> => {
   const param = new CalcDiscountParameters()
-  param.setProductid(productId)
+  param.setProductId(productId)
   if (userId) {
-    param.setUserid(userId)
+    param.setUserId(userId)
   }
   if (forceDiscountDebug === 0 || forceDiscountDebug) {
     param.setForceDiscountDebug(forceDiscountDebug)
